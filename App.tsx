@@ -24,17 +24,22 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import { t } from './locales';
+import {t} from './locales';
+import useAuthStore from './src/store/auth.store';
 
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
 function Section({children, title}: SectionProps): JSX.Element {
+  const {token, setToken, ...res} = useAuthStore();
+  console.tron.log('reatcotron', token, res);
+
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
       <Text
+        onPress={() => setToken('adawdawdawd')}
         style={[
           styles.sectionTitle,
           {
