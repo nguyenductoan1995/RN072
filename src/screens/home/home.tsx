@@ -1,10 +1,23 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Text, Wrapper} from '../../components';
+import {useHome} from '../../hook/Home';
 import useAuthStore from '../../store/auth.store';
 
 function Home() {
   const {token, setToken} = useAuthStore(state => state);
+  const {state, _doRequest} = useHome();
+
+  useEffect(() => {
+    console.tron.log('home', state);
+  }, [state]);
+
+  useEffect(() => {
+    // if (typeof doRequest === 'function') {
+    _doRequest();
+    // }
+  }, []);
+
   return (
     <Wrapper>
       <View style={styles.container}>
