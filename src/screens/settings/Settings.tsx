@@ -3,17 +3,17 @@ import {StyleSheet, View} from 'react-native';
 import {Text, Wrapper} from '../../components';
 import useAuthStore from '../../store/auth.store';
 
-function Home() {
+function Settings() {
   const {token, setToken} = useAuthStore(state => state);
   return (
     <Wrapper>
       <View style={styles.container}>
-        <Text onPress={() => setToken(null)}>Home:{token}</Text>
+        <Text onPress={() => setToken(null)}>Setting:{token}</Text>
       </View>
     </Wrapper>
   );
 }
-export default Home;
+export default Settings;
 
 const styles = StyleSheet.create({
   container: {

@@ -2,6 +2,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {TransitionPresets} from '@react-navigation/stack';
 import routes from '../configs/routes';
 import Home from './home/home';
+import Settings from './settings/Settings';
 
 const Tab = createBottomTabNavigator();
 
@@ -13,7 +14,7 @@ function BottomNavigator() {
         ...TransitionPresets.SlideFromRightIOS,
       }}>
       <Tab.Screen name={routes.HomeScreen} component={Home} />
-      <Tab.Screen name={routes.SettingsScreen} component={Home} />
+      <Tab.Screen name={routes.SettingsScreen} component={Settings} />
     </Tab.Navigator>
   );
 }
