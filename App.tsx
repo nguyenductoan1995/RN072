@@ -24,6 +24,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { t } from './locales';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -40,7 +41,7 @@ function Section({children, title}: SectionProps): JSX.Element {
             color: isDarkMode ? Colors.white : Colors.black,
           },
         ]}>
-        {title}
+        {t('hello')}
       </Text>
       <Text
         style={[
