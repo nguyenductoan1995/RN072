@@ -9,6 +9,8 @@ import Reactotron, {
 import {NativeModules} from 'react-native';
 import url from 'url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import reactotronZustand from 'reactotron-plugin-zustand';
+import useAuthStore from '../store/auth.store';
 
 if (__DEV__) {
   // eslint-disable-line
@@ -21,6 +23,11 @@ if (__DEV__) {
     .use(overlay())
     .use(asyncStorage())
     .use(networking())
+    .use(
+      reactotronZustand({
+        stores: [{name: 'app', zustand: useAuthStore}],
+      }),
+    )
     .connect();
 
   // Let's clear Reactotron on every time we load the app

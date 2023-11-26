@@ -6,16 +6,14 @@ import useAuthStore from '../../store/auth.store';
 
 function Home() {
   const {token, setToken} = useAuthStore(state => state);
-  const {state, _doRequest} = useHome();
+  const {state, doRequest} = useHome();
 
   useEffect(() => {
     console.tron.log('home', state);
   }, [state]);
 
   useEffect(() => {
-    // if (typeof doRequest === 'function') {
-    _doRequest();
-    // }
+    doRequest({toan: 'adadw'});
   }, []);
 
   return (

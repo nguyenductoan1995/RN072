@@ -3,6 +3,7 @@ import {StyleSheet, View} from 'react-native';
 import {Text, Wrapper} from '../../components';
 import colors from '../../constants/colors';
 import useAuthStore from '../../store/auth.store';
+import {setDefaultHeaders} from '../../utils/functions/Axios';
 
 function Login() {
   const {setToken} = useAuthStore(state => state);
@@ -12,6 +13,9 @@ function Login() {
         <Text
           onPress={() => {
             setToken('this is have token');
+            setDefaultHeaders({
+              Authorization: `Bearer ${'this is have token'}`,
+            });
           }}>
           Login
         </Text>

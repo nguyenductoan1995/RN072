@@ -1,5 +1,5 @@
 import {create} from 'zustand';
-import {persist, createJSONStorage, devtools} from 'zustand/middleware';
+import {persist, createJSONStorage} from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface useAuthStore {
@@ -14,7 +14,7 @@ const useAuthStore = create<useAuthStore>()(
       setToken: (value: any) => set({token: value}),
     }),
     {
-      name: 'token',
+      name: '@token',
       storage: createJSONStorage(() => AsyncStorage),
     },
   ),
